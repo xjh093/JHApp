@@ -107,13 +107,29 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (!_ctrlsThatNavigationBarHidden.count) {
-        return;
+    // 隐藏所有控制器的 导航栏
+    if (_allHide) {
+        // 查看有没有要展示的
+        if (_ctrlsThatNavigationBarShow.count) {
+            BOOL isMe = ![_ctrlsThatNavigationBarShow containsObject:NSStringFromClass([viewController class])];
+            [self setNavigationBarHidden:isMe animated:YES];
+            return;
+        }
+        
+        [self setNavigationBarHidden:YES animated:YES];
     }
-    
-    // 处理导航的隐藏与显示
-    BOOL isMe = [_ctrlsThatNavigationBarHidden containsObject:NSStringFromClass([viewController class])];
-    [self setNavigationBarHidden:isMe animated:YES];
+    // 展示所有
+    else{
+        // 查看有没有要隐藏的
+        if (_ctrlsThatNavigationBarHidden.count) {
+            // 处理导航的隐藏与显示
+            BOOL isMe = [_ctrlsThatNavigationBarHidden containsObject:NSStringFromClass([viewController class])];
+            [self setNavigationBarHidden:isMe animated:YES];
+            return;
+        }
+        
+        [self setNavigationBarHidden:NO animated:YES];
+    }
 }
 
 #pragma mark - UIGestureRecognizerDelegate
