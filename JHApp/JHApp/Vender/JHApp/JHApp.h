@@ -12,6 +12,7 @@
 #import "JHAppFont.h"
 #import "JHAppColor.h"
 #import "JHAppDefine.h"
+#import "JHTool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
