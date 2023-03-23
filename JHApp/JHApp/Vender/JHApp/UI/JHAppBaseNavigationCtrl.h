@@ -23,8 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航返回代理
 @property (nonatomic,    weak) id<JHAppBaseNavigationCtrlDelegate>navDelegate;
 
+/// YES - 隐藏所有控制器的 导航栏
+@property (nonatomic,  assign) BOOL  allHide;
 /// 需要隐藏导航栏的控制器
 @property (nonatomic,  strong) NSArray *ctrlsThatNavigationBarHidden;
+/// 需要展示导航栏的控制器
+@property (nonatomic,  strong) NSArray *ctrlsThatNavigationBarShow;
 
 @end
 
