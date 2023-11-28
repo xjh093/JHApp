@@ -28,4 +28,22 @@
     return self;
 }
 
++ (void)appConfig
+{
+#ifdef __IPHONE_11_0
+    if (@available(ios 11.0,*)){
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        UITableView.appearance.estimatedRowHeight = 0;
+        UITableView.appearance.estimatedSectionFooterHeight = 0;
+        UITableView.appearance.estimatedSectionHeaderHeight = 0;
+    }
+    
+#endif
+#ifdef __IPHONE_15_0
+    if (@available(iOS 15.0, *)) {
+        UITableView.appearance.sectionHeaderTopPadding = 0;
+    }
+#endif
+}
+
 @end
