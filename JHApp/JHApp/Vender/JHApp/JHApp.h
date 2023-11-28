@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark --- 尺寸
 @property (nonatomic,  strong) JHAppSize *size;
 
++ (void)appConfig;
+
 @end
 
 NS_ASSUME_NONNULL_END
